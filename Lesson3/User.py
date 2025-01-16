@@ -13,16 +13,3 @@ class User:
 
     def print_full_name(self):
         print(f"{self.first_name} {self.last_name}")
-
-
-# lesson_3_task_1.py
-
-from User import User
-
-# Создаем экземпляр User
-my_user = User("Иван", "Иванов")
-
-# Вызываем методы у объекта my_user
-my_user.print_first_name()  # Печатает имя
-my_user.print_last_name()  # Печатает фамилию
-my_user.print_full_name()  # Печатает полное имя
