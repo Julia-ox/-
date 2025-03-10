@@ -6,6 +6,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+def set_zoom(driver, zoom_percentage):
+    driver.execute_script(f"document.body.style.zoom = '{zoom_percentage}%';")
+
 
 # Фикстура для создания WebDriver
 @pytest.fixture
@@ -18,14 +21,7 @@ def driver():
 # Тест
 def test_01_form(driver):
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
-
-    driver.maximize_window()
-
-def scroll_into_view_and_click(element):
-    # Прокрутка страницы к указанному элементу
-    driver.execute_script("arguments[0].scrollIntoView(true);", element)
-    # Клик по элементу
-    element.click()
+    set_zoom(driver, 80)
 
     # Заполнение формы
     first_name = driver.find_element(By.CSS_SELECTOR, "input[name='first-name']")
